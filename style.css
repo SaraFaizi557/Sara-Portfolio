@@ -704,7 +704,7 @@ body {
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .info-list li {
@@ -756,6 +756,13 @@ body {
 .contact-form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.col_input {
+  display: flex;
+  flex-direction: row;
   gap: 1rem;
 }
 
@@ -1026,7 +1033,7 @@ textarea {
   font-size:3rem;
 }
 .about-head p{
-  font-size:1.2rem;  /* add this line if missing */
+  font-size:1.2rem;
 }
 
 .stat-num{ font-size:1.5rem; }
@@ -1071,5 +1078,154 @@ textarea {
   font-size: 1.2em;
 }
 
+.nav__list {
+  display: none;
 }
 
+}
+
+@media (max-width: 664px) {
+  .home {
+  padding-top: 4rem;
+  margin-bottom: 6rem;
+}
+
+.home__description {
+  width: 500px;
+  font-size: 1.3rem;
+}
+
+.skills-cards{
+  max-width:500px;
+}
+
+.card{
+  width:200px; min-height:10px;
+}
+
+.about-wrap{ max-width:98%;}
+
+.about-head h2{
+  font-size:2.8rem;
+}
+.about-head p{
+  font-size:1.1rem;
+}
+
+.services-sub {
+  width: 500px;
+}
+
+.contact {
+  padding: 0px 0;
+}
+
+.contact-grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-wrap{margin:40px auto 8rem;}
+
+.services {
+  margin-bottom: 4rem;
+}
+
+.contact {
+  background: var(--Body-bg); /* now same as home background */
+  padding: 80px 0;
+  color: var(--Text-primary);
+  margin-bottom: 4rem;
+  font-family: "Rajdhani", sans-serif;
+}
+
+input,
+textarea {
+  padding: 14px 10px;
+}
+
+.contact-form {
+  overflow: hidden;
+}
+
+label {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+}
+
+@media (max-width: 570px) {
+
+.contact-info,
+.contact-form {
+  padding: 1rem;
+}
+
+  input,
+textarea {
+  padding: 14px 8px;
+  font-size: 1rem;
+}
+}
+
+@media (max-width: 589px) {
+input,
+textarea {
+  width: 100%;
+}
+
+.contact-form {
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+}
+}
+
+@media (max-width: 500px) {
+.home__description {
+  width: 450px;
+  font-size: 1.2rem;
+}
+
+.skills-cards{
+  max-width:450px;
+}
+
+.card{
+  width:190px; min-height:5px;
+}
+
+.about-head h2{
+  font-size:2.5rem;
+}
+.about-head p{
+  font-size:1rem;
+}
+
+.services-sub {
+  width: 450px;
+  font-size: 1.1rem;
+}
+
+.about-wrap{margin:20px auto 4rem;}
+
+.services {
+  margin-bottom: 1rem;
+}
+}
+
+@media (max-width: 484px) {
+  .home__title {
+  font-size: 2.8rem;
+  text-align: center;
+}
+
+.about-head h2{
+  font-size:2.3rem;
+}
+
+.services-title {
+  font-size: 1.8rem;
+}
+}
