@@ -1247,7 +1247,7 @@ textarea {
 @media (max-width: 459px) {
   .home {
   height: 50vh;
-
+  margin-bottom: 13rem;
 }
 
 .home__title {
