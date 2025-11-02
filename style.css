@@ -807,7 +807,11 @@ textarea:focus {
 }
 .f-wrap{
   max-width:1100px; margin:auto; padding:18px 16px;
-  display:grid; grid-template-columns: 1fr auto 1fr; align-items:center; gap:12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  gap:12px;
 }
 @media (max-width: 820px){
   .f-wrap{ text-align:center; }
@@ -815,7 +819,10 @@ textarea:focus {
 
 /* left */
 .f-left{ display:flex; align-items:center; gap:12px; }
-@media (max-width:820px){ .f-left{ justify-content:center; } }
+@media (max-width:820px){ 
+  .f-left{ justify-content:center; } 
+  .f-nav { justify-content:center; } 
+}
 .f-logo{
   font-family:"Michroma", sans-serif; text-decoration:none; color:var(--Text-primary);
   font-size:1.2rem; letter-spacing:.2px;
