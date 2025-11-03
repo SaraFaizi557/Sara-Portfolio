@@ -10,9 +10,10 @@
 --Hover-color: #FF6F61;
 
 --panel: #101315;   
-  --ring:  rgba(255,255,255,.10);  
-  --shadow: rgba(0,0,0,.35);
-  --gap:16px;
+--ring:  rgba(255,255,255,.10);  
+--shadow: rgba(0,0,0,.35);
+--gap:16px;
+--stack: clamp(24px, 5vh, 96px);  
 }
 
 * {
@@ -216,15 +217,13 @@ body {
   }
 }
 
-.home {
-  height: 70vh;
-  display: grid;
-  padding-top: 9rem;
-  margin-bottom: 15rem;
-  justify-content: center;
-  text-align: center;
+.home{
+  min-height: clamp(520px, 68svh, 780px);
+  height: auto !important;  
+  padding-top: clamp(72px, 10vh, 140px);
+  padding-bottom: clamp(12px, 2.5vh, 28px);
+  margin-bottom: var(--stack);
   font-family: "Rajdhani", sans-serif;
-
 }
 
 .home__content {
@@ -374,7 +373,6 @@ body {
   padding:0 16px;
 }
 
-/* lane container */
 .lane{
   position:relative;
   overflow:hidden;
@@ -387,7 +385,6 @@ body {
           mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
 }
 
-/* left -> right scrolling track */
 .cards{
   display:inline-flex;
   gap:var(--gap);
@@ -404,7 +401,6 @@ body {
   to   { transform: translate3d(0,0,0); }
 }
 
-/* BIG CARD */
 .card{
   width:240px; min-height:130px;
   padding:14px;
@@ -420,13 +416,11 @@ body {
 }
 .card:hover{ transform: translateY(-3px); border-color: rgba(255,255,255,.18); }
 
-/* header line */
 .head{ display:flex; align-items:center; gap:10px; margin-bottom:4px; }
 .i{ width:18px; height:18px; display:block; color: var(--Text-primary); opacity:.95; }
 .card h4{ margin:0; font: 700 16px/1.2 "Rajdhani", system-ui; }
 .card p{ margin:2px 0 8px; font: 500 13px/1.4 "Rajdhani", system-ui; color: var(--Text-muted); }
 
-/* tag pill */
 .pill{
   align-self:flex-start;
   font: 600 12px/1 "Rajdhani", system-ui;
@@ -440,12 +434,11 @@ body {
   .card{ width:200px; min-height:120px; }
 }
 
-/* accessibility */
 @media (prefers-reduced-motion: reduce){
   .cards{ animation: none; }
 }
 
-.about-wrap{ max-width:90%; margin:40px auto 15rem; padding:0 16px; text-align: center; font-family: "Rajdhani", sans-serif; }
+.about-wrap{ max-width:90%; margin:49px auto 13rem; padding:0 16px; text-align: center; font-family: "Rajdhani", sans-serif; }
 .about-card{
   background: linear-gradient(0deg, rgba(255,255,255,.02), rgba(255,255,255,.02)), var(--Body-bg);
   border:1px solid var(--ring);
@@ -491,7 +484,7 @@ body {
 }
 
 .values h3, .about-skills h3{
-  font-size:2.5rem;  /* pehle 16px tha */
+  font-size:2.5rem;
 }
 
 .values p{ color:var(--Text-muted); margin:0; }
@@ -504,7 +497,7 @@ body {
 
 .facts li,
 .skill{
-  font-size:1.3rem;  /* 13px → 15px */
+  font-size:1.3rem;
 }
 
 
@@ -622,7 +615,6 @@ body {
   line-height: 1.5;
 }
 
-/* Fade-in animation */
 .service-card {
   opacity: 0;
   transform: translateY(40px);
@@ -646,7 +638,7 @@ body {
 }
 
 .contact {
-  background: var(--Body-bg); /* now same as home background */
+  background: var(--Body-bg);
   padding: 80px 0;
   color: var(--Text-primary);
   margin-bottom: 10rem;
@@ -877,7 +869,7 @@ textarea:focus {
   font-weight:600; font-size:3rem;
 }
 .about-head p{
-  font-size:1.5rem;  /* add this line if missing */
+  font-size:1.5rem;
 }
 
 .values p {
@@ -885,12 +877,12 @@ textarea:focus {
 }
 
 .values h3, .about-skills h3{
-  font-size:2rem;  /* pehle 16px tha */
+  font-size:2rem;
 }
 
 .facts li,
 .skill{
-  font-size:1rem;  /* 13px → 15px */
+  font-size:1rem;
 }
 .stat-num{ font-size:2rem; }  
 .stat-label{ font-size:.8rem; }
@@ -941,6 +933,8 @@ textarea {
 }
 
 }
+
+
 
 @media (max-width: 947px) {
   .skills-cards{
@@ -1120,7 +1114,7 @@ textarea {
 }
 
 .contact {
-  background: var(--Body-bg); /* now same as home background */
+  background: var(--Body-bg);
   padding: 80px 0;
   color: var(--Text-primary);
   margin-bottom: 4rem;
@@ -1402,4 +1396,46 @@ textarea {
   padding: .5rem;
 }
 
+}
+
+@media (max-width: 459px){
+  .home{ height:50vh; margin-bottom:13rem; }
+}
+
+/* ---------- MOBILE PATCH (≤640px) ---------- */
+@media (max-width:640px){
+
+  /* Hero: no fixed height, give a sane bottom gap */
+  .home{
+    height: auto !important;
+    min-height: unset !important;
+    padding-top: 72px;
+    padding-bottom: 20px;
+    margin-bottom: 72px !important;
+  }
+
+  /* Cards lane: keep inside edges + normal spacing */
+  .skills-cards{
+    margin: 24px auto 0 !important;  /* top-only gap */
+    padding: 0 12px;
+  }
+  .skills-cards .lane{
+    overflow: hidden; /* restore so cards don’t bleed */
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+            mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  }
+
+  /* Gap between cards and About so nothing touches */
+  .skills-cards + .about-wrap{
+    margin-top: 64px !important;
+  }
+
+  /* A little padding so About’s rounded top isn’t tight */
+  .about-wrap{ padding-top: 8px; }
+}
+
+/* Tiny phones: slightly tighter but still safe */
+@media (max-width:400px){
+  .home{ margin-bottom: 64px !important; padding-top: 64px; }
+  .skills-cards + .about-wrap{ margin-top: 56px !important; }
 }
