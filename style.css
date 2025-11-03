@@ -1402,10 +1402,7 @@ textarea {
   .home{ height:50vh; margin-bottom:13rem; }
 }
 
-/* ---------- MOBILE PATCH (≤640px) ---------- */
 @media (max-width:640px){
-
-  /* Hero: no fixed height, give a sane bottom gap */
   .home{
     height: auto !important;
     min-height: unset !important;
@@ -1414,28 +1411,25 @@ textarea {
     margin-bottom: 72px !important;
   }
 
-  /* Cards lane: keep inside edges + normal spacing */
   .skills-cards{
-    margin: 24px auto 0 !important;  /* top-only gap */
+    margin: 24px auto 0 !important;
     padding: 0 12px;
   }
   .skills-cards .lane{
-    overflow: hidden; /* restore so cards don’t bleed */
+    overflow: hidden;
     -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
             mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
   }
 
-  /* Gap between cards and About so nothing touches */
   .skills-cards + .about-wrap{
     margin-top: 64px !important;
   }
 
-  /* A little padding so About’s rounded top isn’t tight */
   .about-wrap{ padding-top: 8px; }
 }
 
-/* Tiny phones: slightly tighter but still safe */
 @media (max-width:400px){
   .home{ margin-bottom: 64px !important; padding-top: 64px; }
   .skills-cards + .about-wrap{ margin-top: 56px !important; }
 }
+
